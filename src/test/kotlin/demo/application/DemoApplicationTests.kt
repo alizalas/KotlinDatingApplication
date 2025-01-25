@@ -15,19 +15,19 @@ class DemoApplicationTests {
     private lateinit var client: Client
 
     @Test
-    fun registerUser() {
+    fun register() {
         val request = UserRegister(login = "LOGIN", password = "PASSWORD")
         val response = client.registerUser(request)
         Assertions.assertEquals(HttpStatusCode.valueOf(200), response.statusCode)
     }
 
     @Test
-    fun addUserInformation() {
+    fun addInformation() {
         val startRequest = UserRegister(login = "login", password = "password")
         val startResponse = client.registerUser(startRequest)
         Assertions.assertEquals(HttpStatusCode.valueOf(200), startResponse.statusCode)
 
-        val endRequest = UserAddInfotmation("female", age = 18, lastName = "Ларина", firstName = "Татьяна")
+        val endRequest = UserAddInfotmation("female", age = 18, lastName = "Ларина", firstName = "Татьяна", photo = "photo")
         val endResponse = client.addUserInformation(endRequest, startResponse.body!!.token)
         Assertions.assertEquals(HttpStatusCode.valueOf(200), endResponse.statusCode)
     }

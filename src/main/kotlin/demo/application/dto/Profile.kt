@@ -1,9 +1,8 @@
 package demo.application.dto
 
-data class UserAddInfotmation(
-    val gender: String,
+data class Profile(
     val age: Int,
     val lastName: String,
     val firstName: String,
-    val photo: String
+    val photoUrl: String
 )
